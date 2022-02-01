@@ -1,7 +1,6 @@
 import pygame
 from sys import exit
 
-
 pygame.init()
 
 # screen size
@@ -29,8 +28,8 @@ class Ui:
         self.surf = pygame.image.load('Imgs/UI/StressBarLine.png').convert()
         self.rect = self.surf.get_rect(midbottom=(x, y))
         self.color = (120, 241, 56)
-        self.velX=0
-        self.velY=0
+        self.velX = 0
+        self.velY = 0
         self.speed = 3
 
     def draw(self, screen):
@@ -39,8 +38,8 @@ class Ui:
             screen.blit(self.surf, self.rect)
 
     def update(self):
-        self.velX=0
-        self.velY=0
+        self.velX = 0
+        self.velY = 0
 
         if not player.is_fishing:
             if player.mouseL_pressed:
@@ -78,7 +77,6 @@ class Ui:
                     return
                 player.line_str += .5
                 self.velX -= self.speed / 2
-
 
         self.x += self.velX
         self.y += self.velY
@@ -123,8 +121,6 @@ class Player:
             self.velY = self.speed
 
         # can fish or not
-
-
         self.x += self.velX
         self.y += self.velY
         self.rect = pygame.Rect(self.x, self.y, 32, 64)
@@ -132,6 +128,7 @@ class Player:
 
 player = Player(50, 100)
 ui = Ui(253, 369, 250, 365)
+
 # Main game loop
 while True:
 
@@ -160,7 +157,6 @@ while True:
                 player.up_pressed = False
             if event.key == pygame.K_s:
                 player.down_pressed = False
-
 
         # Mouse Controls
 
